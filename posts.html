@@ -21,6 +21,7 @@
 				<span>{{post.body}}</span>
 			</li>			
 		</ul>
+		<button ng-click="addPost()" class="btn btn-default">Add Post</button>
 	</div>
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
  <script type="text/javascript">
@@ -36,6 +37,16 @@
  		body : "Exploring the MEAN stack" 		
  	} 	
  	];
+
+$scope.addPost = function(){
+
+	$scope.posts.unshift({
+	username: '@@VishalRanjan',
+	body : 'My new post'
+
+	})
+}
+
  }])
 
  </script>
