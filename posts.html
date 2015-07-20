@@ -21,6 +21,8 @@
 				<span>{{post.body}}</span>
 			</li>			
 		</ul>
+		<input ng-model="postBody" class="form-control" placeholder="Whats on your mind ?" />
+		</br>
 		<button ng-click="addPost()" class="btn btn-default">Add Post</button>
 	</div>
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
@@ -38,13 +40,20 @@
  	} 	
  	];
 
-$scope.addPost = function(){
-
-	$scope.posts.unshift({
-	username: '@@VishalRanjan',
-	body : 'My new post'
-
+	
+ 	$scope.addPost = function(){
+	if($scope.postBody)
+ 	{
+ 		$scope.posts.unshift({
+		username: '@@VishalRanjan',
+		body : $scope.postBody
 	})
+	$scope.postBody = null ;	
+ 	}else
+ 	console.log("Nothing entered");
+
+
+	
 }
 
  }])
