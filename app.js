@@ -1,13 +1,18 @@
 var express = require('express');
-var app = express();
+var bodyParser = require('body-parser');
 
-app.get('/', function (req, res) {
-  res.send('Hello World!');
+var app = express();
+app.use(bodyParser.json());
+
+app.get('/api/posts', function (req, res) {
+  res.json([
+  {
+  	username : "vishalRanjan",
+  	body : "this is from node"
+  }
+  ])
 });
 
-var server = app.listen(3000, function () {
-  var host = server.address().address;
-  var port = server.address().port;
-
-  console.log('Example app listening at http://%s:%s', host, port);
+app.listen(3000, function () {
+  console.log('App listening at ',3000);
 });
