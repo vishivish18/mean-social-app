@@ -1,0 +1,28 @@
+{
+  "name": "mean-social-app",
+  "version": "0.0.0",
+  "description": "Mean sample social app from MEAN stack book",
+  "main": "app.js",
+  "dependencies": {
+    "express": "~4.13.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/vishivish18/mean-social-app.git"
+  },
+  "keywords": [
+    "Mongo",
+    "Express",
+    "Angular",
+    "Node"
+  ],
+  "author": "vishalR",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/vishivish18/mean-social-app/issues"
+  }
+}
