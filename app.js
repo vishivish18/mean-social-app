@@ -6,6 +6,11 @@ app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 
+app.get('/', function(req,res){
+	res.sendFile('layouts/posts.html', { root: __dirname });
+
+})
+
 app.get('/api/posts', function (req, res, next) {
   Post.find(function(err,posts){
 
