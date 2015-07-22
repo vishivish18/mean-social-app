@@ -12,16 +12,8 @@ app.get('/api/posts', function (req, res, next) {
   	/*if(err) {return next(err)}*/
   	if(err) {res.json([{error:"this is a error"}])}
   	res.json(posts);
-
   })
-
-
 });
-
-app.listen(3000, function () {
-  console.log('App listening at ',3000);
-});
-
 
 app.post('/api/posts',function(req,res,next){
 var post = new Post({
@@ -36,3 +28,6 @@ post.save(function (err,post){
 	})	
 })
 
+app.listen(3000, function () {
+  console.log('App listening at ',3000);
+});
