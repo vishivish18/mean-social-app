@@ -29,7 +29,7 @@
  <script type="text/javascript">
  var app = angular.module('app',[]);
  app.controller('PostsCtrl', ['$scope','$http', function($scope,$http){
- 	$http.get('http://localhost:3000/api/posts')
+ 	$http.get('/api/posts')
  	.success(function (posts){
  		$scope.posts = posts
 

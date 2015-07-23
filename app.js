@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var app = express();
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+app.use('/api/posts',require('./controllers/api/posts'))
 
 
 app.get('/', function(req,res){
@@ -11,13 +12,14 @@ app.get('/', function(req,res){
 
 })
 
-app.get('/api/posts', function (req, res, next) {
-  Post.find(function(err,posts){
-
-  	if(err) {res.json([{error:"this is a error"}])}
-  	res.json(posts);
-  })
-});
+/*app.get('/api/posts',function (req,res,next){
+	Post.find()
+	.sort('-date')
+	.exec(function(err,posts){
+		if(err) {return next(err)}
+		res.json(posts)
+	})
+})
 
 app.post('/api/posts',function(req,res,next){
 var post = new Post({
@@ -30,7 +32,7 @@ post.save(function (err,post){
 	res.json(201,post)
 
 	})	
-})
+})*/
 
 app.listen(3000, function () {
   console.log('App listening at ',3000);
