@@ -35,20 +35,18 @@
 
  	})
 	
- 	$scope.addPost = function(){
-	if($scope.postBody)
- 	{
- 		$scope.posts.unshift({
-		username: '@@VishalRanjan',
-		body : $scope.postBody
-	})
-	$scope.postBody = null ;	
- 	}else
- 	console.log("Nothing entered");
-
-
-	
-}
+ 	 $scope.addPost = function () {
+          if ($scope.postBody) {
+            $http.post('/api/posts', {
+              username: 'vishalRanjan',
+              body:     $scope.postBody
+            })
+            .success(function (post) {
+              $scope.posts.unshift(post)
+              $scope.postBody = null
+            })
+          }
+        }
 
  }])
 

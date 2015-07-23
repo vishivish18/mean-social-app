@@ -14,7 +14,6 @@ app.get('/', function(req,res){
 app.get('/api/posts', function (req, res, next) {
   Post.find(function(err,posts){
 
-  	/*if(err) {return next(err)}*/
   	if(err) {res.json([{error:"this is a error"}])}
   	res.json(posts);
   })
