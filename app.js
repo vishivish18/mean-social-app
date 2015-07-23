@@ -5,12 +5,13 @@ var app = express();
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 app.use('/api/posts',require('./controllers/api/posts'))
+app.use('/',require('./controllers/static.js'))
 
 
-app.get('/', function(req,res){
+/*app.get('/', function(req,res){
 	res.sendFile('layouts/posts.html', { root: __dirname });
 
-})
+})*/
 
 /*app.get('/api/posts',function (req,res,next){
 	Post.find()
