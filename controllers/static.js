@@ -1,7 +1,9 @@
+var express = require('express')
 var router = require('express').Router()
 var path = require('path')
 
 
+router.use(express.static(path.resolve('assets')))
 router.get('/posts', function (req,res){
 
 

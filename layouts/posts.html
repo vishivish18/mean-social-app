@@ -26,31 +26,7 @@
 		<button ng-click="addPost()" class="btn btn-default">Add Post</button>
 	</div>
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
- <script type="text/javascript">
- var app = angular.module('app',[]);
- app.controller('PostsCtrl', ['$scope','$http', function($scope,$http){
- 	$http.get('/api/posts')
- 	.success(function (posts){
- 		$scope.posts = posts
-
- 	})
-	
- 	 $scope.addPost = function () {
-          if ($scope.postBody) {
-            $http.post('/api/posts', {
-              username: 'vishalRanjan',
-              body:     $scope.postBody
-            })
-            .success(function (post) {
-              $scope.posts.unshift(post)
-              $scope.postBody = null
-            })
-          }
-        }
-
- }])
-
- </script>
+ <script type="text/javascript" src= '/app.js'></script>
 </body>
 
 </html>
