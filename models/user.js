@@ -1,5 +1,5 @@
 var mongoose= require('mongoose')
-mongoose.connect('mongodb://localhost/auth/demo')
+mongoose.connect('mongodb://localhost/auth_demo')
 
 var user = mongoose.Schema({
 	username : String,
@@ -7,4 +7,6 @@ var user = mongoose.Schema({
 })
 
 module.exports = mongoose.model('User',user)
+
+
 
