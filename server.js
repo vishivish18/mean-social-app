@@ -1,5 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var User = require('./models/user')
 var app = express();
 var jwt = require('jwt-simple')
 var _ = require('lodash')
@@ -36,6 +37,20 @@ var user = findUserByUsername(req.body.username)
 
 	})
 })
+
+app.post('/user',function(req,res){
+	var user = new User({username:req.body.username})
+	bcrypt.hash(req.body.password,10,function(err,hash){
+		user.password = hash
+		user.save(function(err,user){
+			if(err){throw next(err)}
+				// res.send(201)
+				res.json(user);
+		})
+	})
+
+})
+
 
 app.get('/user',function(req,res){
 var token = req.headers['x-auth']
