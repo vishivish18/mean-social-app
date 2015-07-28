@@ -15,17 +15,45 @@ var secretkey = "supersecretkey"
 
 
 app.post('/session', function(req,res,next){
-	User.findOne({username: req.body.username}, function(err,user){
-	if(err){return next(err)}
-	if(!user){return res.send(401)}
-	bcrypt.compare(req.body.password,user.password,function(err,valid){
-		if(err){return next(err)}
-		if(!valid){return res.send(401)}
-		var token = jwt.encode({username:user.username},secretkey);
-		res.json(token);
+	console.log(req.body.username);
+	
+	User.findOne({username: req.body.username})
+	.select('password')
+	.exec(function(err,user){
+		//it gets a user instance which does not have a username property . Why ?
+		if(err) {return next(err)}
+		if(!user) { return res.send(401) }
+		
+		bcrypt.compare(req.body.password,user.password, function(err,valid){
+			if(err){ return next(err)}
+			if(!valid){return res.send(401)}
+			//var test = {username:user.username};
+			//console.log(user.username);
+			var token = jwt.encode({username:req.body.username},secretkey)
+			res.json(token)
+
 		})
-	})	
+
+	})
 })
+
+/*app.get('/user',function(req,res){
+var token = req.headers['x-auth']
+var user = jwt.decode(token,secretkey)
+res.json(user)
+})   
+*/
+
+app.get('/user', function(req,res,next){
+var token = req.headers['x-auth']
+console.log(token)
+var auth = jwt.decode(token,secretkey)
+//console.log(auth)
+User.findOne({username:auth.username},function(err,user){
+	res.json(user)
+})
+})
+
 
 app.post('/user',function(req,res){
 	var user = new User({username:req.body.username})
@@ -41,11 +69,6 @@ app.post('/user',function(req,res){
 })
 
 
-app.get('/user',function(req,res){
-var token = req.headers['x-auth']
-var user = jwt.decode(token,secretkey)
-res.json(user)
-})   
 
 app.listen(3000)
 
