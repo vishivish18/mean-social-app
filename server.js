@@ -9,33 +9,22 @@ var bcrypt =require('bcrypt')
 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
-//app.use(require('body-parser').json)
 
 
-var users = [{username:'vishivish18',password:'$2a$10$xHr5GHJlavPXGJrw0EvGG.ZGQdju3s7boiViovILkg8YGUGBaz13m'}]
 var secretkey = "supersecretkey"
 
-function findUserByUsername(username){
-	return _.find(users,{username:username})
-}
 
-function validateUser(user,password,cb){
-
-	return bcrypt.compare(password,user.password,cb)
-
-
-}
-
-
-app.post('/session', function(req,res){
-var user = findUserByUsername(req.body.username)
-	validateUser(user, req.body.password, function(err,valid){
-		if(err || !valid) {return res.send(401)}
-			var token = jwt.encode({username: user.username},secretkey)
-			res.json(token+" "+" User is authenticated")
-
-
-	})
+app.post('/session', function(req,res,next){
+	User.findOne({username: req.body.username}, function(err,user){
+	if(err){return next(err)}
+	if(!user){return res.send(401)}
+	bcrypt.compare(req.body.password,user.password,function(err,valid){
+		if(err){return next(err)}
+		if(!valid){return res.send(401)}
+		var token = jwt.encode({username:user.username},secretkey);
+		res.json(token);
+		})
+	})	
 })
 
 app.post('/user',function(req,res){
