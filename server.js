@@ -1,4 +1,4 @@
-var express = require('express');
+/*var express = require('express');
 var bodyParser = require('body-parser');
 var User = require('./models/user')
 var app = express();
@@ -72,3 +72,4 @@ app.post('/user',function(req,res){
 
 app.listen(3000)
 
+*/

@@ -1,6 +1,5 @@
 angular.module('app')
-.controller('PostsCtrl',function($scope,PostsSvc){
- 	
+.controller('PostsCtrl',function($scope,PostsSvc){ 
   PostsSvc.fetch()
  	.success(function (posts){
  		$scope.posts = posts
