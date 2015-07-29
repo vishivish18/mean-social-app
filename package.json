@@ -9,6 +9,11 @@
     "express": "~4.13.1",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
+    "gulp-ng-annotate": "^1.1.0",
+    "gulp-nodemon": "^2.0.3",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-stylus": "^2.0.5",
+    "gulp-uglify": "^1.2.0",
     "jwt-simple": "^0.3.0",
     "lodash": "^3.10.0"
   },
