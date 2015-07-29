@@ -1,7 +1,7 @@
 var router = require('express').Router()
 var Post = require('../../models/post')
 
-router.get('/', function (req, res, next) {
+router.get('/posts', function (req, res, next) {
   Post.find()
   .sort('-date')
   .exec(function (err, posts) {
@@ -10,7 +10,7 @@ router.get('/', function (req, res, next) {
   })
 })
 
-router.post('/', function (req, res, next) {
+router.post('/posts', function (req, res, next) {
   var post = new Post({
     username: req.body.username,
     body:     req.body.body,
