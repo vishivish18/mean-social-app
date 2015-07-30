@@ -5,7 +5,7 @@ var app = express();
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 app.use('/api/posts',require('./controllers/api/posts'))
-app.use('/',require('./controllers/static.js'))
+app.use('/',require('./controllers/static'))
 
 
 app.listen(3000, function () {
