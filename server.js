@@ -37,12 +37,6 @@ app.post('/session', function(req,res,next){
 	})
 })
 
-app.get('/user',function(req,res){
-var token = req.headers['x-auth']
-var user = jwt.decode(token,secretkey)
-res.json(user)
-})   
-
 
 app.get('/user', function(req,res,next){
 var token = req.headers['x-auth']
