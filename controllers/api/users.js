@@ -11,8 +11,9 @@ router.get('/', function(req,res,next){
 /*if (!req.headers('x-auth')){
   return res.send(401)
 }
-*/
-console.log("this is the header coming"+req.headers['x-auth']);
+#-ERROR-# ==>Property 'headers' of object #<IncomingMessage> is not a function  # Why ?
+*/  
+
 var auth = jwt.decode(req.headers['x-auth'],config.secret)
       User.findOne({username:auth.username},function(err,user){
       if(err){return next(err)}        
