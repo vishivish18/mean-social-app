@@ -21,6 +21,7 @@
 			<li><a href="/#/register">Register</a></li>
 			<li><a href="/#/login">Login</a></li>
 		</ul>
+		<p mg-if='currentUser' class="navbar-text navbar-right">Signed in as {{currentUser.username}}</p>
 	</div>
 </nav>
 <div ng-view></div>

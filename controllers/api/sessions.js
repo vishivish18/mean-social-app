@@ -6,7 +6,7 @@ var config = require ('../../config')
 
 
 router.post('/', function(req,res,next){
-  console.log(req.body.username);
+  console.log("printing username"+req.body.username);
   
   User.findOne({username: req.body.username})
   .select('password')
