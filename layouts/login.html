@@ -12,14 +12,29 @@
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 
-<body ng-app="app">
+<body ng-app="app" style="background-image:url('images/blur1.jpg'); background-size: cover; background-repeat: repeat-x; animation: animatedBackground 40s linear infinite;">
+	<nav class='navbar navbar-default'>
+	<div class="container">
+	<div class="navbar-header">
+      <a class="navbar-brand" href="/">Trail-Tracker</a>
+    </div>
+		<ul class="nav navbar-nav pull-right">
+			<li><a href="/#/">About</a></li>
+			<li><a href="/#/register">Contact</a></li>
+			<li><a href="/#/login">Sign Up</a></li>
+		</ul>
+		
+	</div>
+</nav>	
 	<div class="container">	
+	
      <div class="row">
      	 <div class="col-sm-3 col-md-4"></div>
 		 <div class="col-xs-3 col-md-4">
 
-			<form style="margin-top:40%;" action="/login" method="POST">
-			<p> Login to start tracking </p>
+
+			<form style="margin-top:60%;" action="/login" method="POST">
+			<h1>Login to start tracking </h1>
 				  <div class="form-group">				  
 				    <input type="email" name="email"  class="form-control" placeholder="Email">
 				  </div>
