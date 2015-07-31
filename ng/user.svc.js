@@ -15,4 +15,14 @@ angular.module('app')
 		})
 	}
 
+
+	svc.register = function (username,password){
+		return $http.post('api/users',{
+			username : username, password : password
+		}).then(function(val){			
+			return val;
+
+		})
+	}
+
 })

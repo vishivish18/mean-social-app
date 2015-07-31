@@ -16,20 +16,23 @@ router.get('/', function(req,res,next){
 
 var auth = jwt.decode(req.headers['x-auth'],config.secret)
       User.findOne({username:auth.username},function(err,user){
-      if(err){return next(err)}        
+      if(err){return next(err)}
+      console.log("this is the user from USER GET: "+user)        
       res.json(user)
+
     })
 })
 
 
-router.post('/',function(req,res){
+router.post('/',function(req,res,next){
   var user = new User({username:req.body.username})
   bcrypt.hash(req.body.password,10,function(err,hash){
     user.password = hash
     user.save(function(err,user){
-      if(err){throw next(err)}
+      if(err){ console.error(err)}         /*throw next(err)   next is coming undefined, even why ? /*/
         // res.send(201)
         res.json(user);
+
     })
   })
 
