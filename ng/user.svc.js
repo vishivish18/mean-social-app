@@ -21,6 +21,7 @@ angular.module('app')
 			username : username, password : password
 		}).then(function(val){			
 			return val;
+			//return svc.login(username,password) This line is no workung. Why ?
 
 		})
 	}
