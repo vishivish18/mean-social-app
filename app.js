@@ -11,6 +11,8 @@ app.use('/api/sessions',require('./controllers/api/sessions'))
 app.use('/',require('./controllers/static'))
 
 
-app.listen(3000, function () {
+var server = app.listen(3000, function () {
   console.log('App listening at ',3000);
 });
+
+require('./websockets').connect(server)
