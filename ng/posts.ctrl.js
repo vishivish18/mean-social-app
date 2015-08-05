@@ -9,7 +9,7 @@ angular.module('app')
  	 $scope.addPost = function () {
           if ($scope.postBody) {
             PostsSvc.create({
-              username: 'vishalRanjan',
+              /*username: 'vishalRanjan',*/
               body:     $scope.postBody              
             }).success(function (post) {
               $scope.posts.unshift(post)
