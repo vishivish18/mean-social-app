@@ -1,4 +1,4 @@
-/*angular.module('app')
+angular.module('app')
 .run(function($rootScope){
 	var url = 'ws://localhost:3000'
 	var connection = new WebSocket(url)
@@ -12,5 +12,6 @@
 		var payload = JSON.parse(e.data)
 		$rootScope.$broadcast('ws:'+payload.topic, payload.data)
 	}
+	
 
-})*/
+})
