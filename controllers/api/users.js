@@ -19,6 +19,7 @@ var auth = jwt.decode(req.headers['x-auth'],config.secret)
       if(err){return next(err)}
       console.log("this is the user from USER GET: "+user)        
       res.json(user)
+      
 
     })
 })
