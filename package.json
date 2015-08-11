@@ -20,6 +20,7 @@
     "wscat": "^1.0.0"
   },
   "devDependencies": {
+    "mocha": "^2.2.5",
     "protractor": "^2.1.0"
   },
   "scripts": {
