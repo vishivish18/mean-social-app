@@ -5,7 +5,7 @@ describe('making a post',function(){
 
 		//click login
 		element(by.css('nav .login')).click()
-		browser.pause()
+		//browser.pause()
 
 		//fill out and submit login form
 		element(by.model('username')).sendKeys('vishi18')
@@ -14,10 +14,15 @@ describe('making a post',function(){
 		element(by.css('form .btn')).click()
 		
 		//submit a new post on the posts page
-		var post = 'my new post'
+		var post = 'my new automated post'
 		element(by.model('postBody')).sendKeys(post)
 		element(by.css('form .btn')).click()
 
 		// the user should now see their post as the first post on the page
+
+
+		element.all(by.css('ul.list-group li')).first().getText().then(function(text){
+			console.log(text);
+		})
 	})
 })
