@@ -1,3 +1,5 @@
+var expect = require('chai').expect
+
 describe('making a post',function(){
 	it('logs in and creates a new post', function(){
 		//go to homepage
@@ -22,7 +24,8 @@ describe('making a post',function(){
 
 
 		element.all(by.css('ul.list-group li')).first().getText().then(function(text){
-			console.log(text);
+			//console.log(text);
+			expect(text).to.contain(post)
 		})
 	})
 })
