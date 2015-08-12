@@ -10,9 +10,9 @@ app.use('/api/users',require('./controllers/api/users'))
 app.use('/api/sessions',require('./controllers/api/sessions'))
 app.use('/',require('./controllers/static'))
 
-
-var server = app.listen(3000, function () {
-  console.log('App listening at ',3000);
+var port = process.env.PORT || 3000
+var server = app.listen(port, function () {
+  console.log('App listening at ',port);
 });
 
 require('./websockets').connect(server)
