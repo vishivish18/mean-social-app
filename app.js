@@ -12,7 +12,7 @@ app.use('/',require('./controllers/static'))
 
 var port = process.env.PORT || 3000
 var server = app.listen(port, function () {
-  console.log('App listening at ',port);
+  console.log('App listening at the ',port);
 });
 
 require('./websockets').connect(server)
