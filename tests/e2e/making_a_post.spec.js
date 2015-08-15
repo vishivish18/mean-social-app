@@ -26,6 +26,8 @@ describe('making a post',function(){
 
 		expect(element.all(by.css('ul.list-group li')).first().getText())
 		.to.eventually.contain(post)
+		// this is not passing the test as it checks for the one earlier post
+		// need to look at the chai-as-promised documentation
 		
 	})
 })
