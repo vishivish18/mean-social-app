@@ -3,8 +3,17 @@ var router = express.Router();              // get an instance of the express Ro
 
 
 var Post = require('./models/post')
+var isAuthenticated = require('./test.js')
 var bodyParser = require('body-parser');
 var app = express();
+
+
+
+
+
+app.get('/hello', isAuthenticated, function(req, res) {
+        res.send('look at me!');
+    });
 
 app.use('/api/route', router);
 app.use(bodyParser.json()); // support json encoded bodies
