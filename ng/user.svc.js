@@ -8,7 +8,7 @@ angular.module('app')
 	svc.login = function(username,password){
 		return $http.post('api/sessions',{
 			username : username, password : password
-		}).then(function(val){
+		}).then(function(val){			
 			svc.token = val.data
 			$window.sessionStorage["user_token"] = JSON.stringify(svc.token)
 			$http.defaults.headers.common['x-auth'] = val.data

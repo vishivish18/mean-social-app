@@ -21,10 +21,9 @@ router.post('/', function(req,res,next){
       //var test = {username:user.username};
       //console.log(user.username);
       var token = jwt.encode({username:req.body.username},config.secret)
+      console.log(token);
       res.json(token)
       
-
-
     })
 
   })
